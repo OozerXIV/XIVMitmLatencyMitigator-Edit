@@ -32,8 +32,8 @@ OPCODE_DEFINITION_LIST_URL = "https://api.github.com/repos/Soreepeong/XivAlexand
 # and it's very easy to identify whether you're trying to go below allowed minimum value.
 # This addon is already in gray area. Do NOT decrease this value. You've been warned.
 # Feel free to increase and see how does it feel like to play on high latency instead, though.
-DEFAULT_EXTRA_DELAY = 0.500
-MAXIMUM_EXTRA_DELAY = 0.750
+DEFAULT_EXTRA_DELAY = 0.075
+MAXIMUM_EXTRA_DELAY = 0.150
 
 T = typing.TypeVar("T")
 
