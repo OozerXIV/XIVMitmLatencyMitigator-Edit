@@ -919,7 +919,7 @@ class Connection:
         # If the server is busy, everyone should feel the same effect.
         # * Only the player's ping is taken out of the equation. (- latencyAdjusted)
         # * Prevent accidentally too high ExtraDelay. (Clamp above 1ms)
-        delay = clamp(rtt - latency, 0.075, MAXIMUM_EXTRA_DELAY)
+        delay = clamp(rtt - latency, 0.050, MAXIMUM_EXTRA_DELAY)
         extra_message += f" delayAdjusted={delay * 1000:.0f}ms"
         return delay, extra_message
 
