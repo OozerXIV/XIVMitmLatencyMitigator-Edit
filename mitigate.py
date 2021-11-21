@@ -684,7 +684,7 @@ class Connection:
                                 rtt = (self.last_successful_request.response_timestamp
                                        - self.last_successful_request.request_timestamp)
                                 self.latency_application.add(rtt)
-                                extra_message += f" rtt={rtt * 1000:.0f}ms"
+                                extra_message += f" rtt={rtt * 5000:.0f}ms"
                                 delay, message_append = self.resolve_adjusted_extra_delay(rtt)
                                 extra_message += message_append
                                 self.last_animation_lock_ends_at += original_wait_time + delay
@@ -693,11 +693,11 @@ class Connection:
                     if math.isclose(wait_time, original_wait_time):
                         self.log(f"S2C_ActionEffect: actionId={effect.action_id:04x} "
                                  f"sourceSequence={effect.source_sequence:04x} "
-                                 f"wait={int(original_wait_time * 1000)}ms{extra_message}")
+                                 f"wait={int(original_wait_time * 5000)}ms{extra_message}")
                     else:
                         self.log(f"S2C_ActionEffect: actionId={effect.action_id:04x} "
                                  f"sourceSequence={effect.source_sequence:04x} "
-                                 f"wait={int(original_wait_time * 1000)}ms->{int(wait_time * 1000)}ms{extra_message}")
+                                 f"wait={int(original_wait_time * 5000)}ms->{int(wait_time * 5000)}ms{extra_message}")
                         effect.animation_lock_duration = max(0., wait_time)
                         effect_bytes = bytes(effect)
                         ipc.data = effect_bytes + ipc.data[len(effect_bytes):]
