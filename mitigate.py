@@ -698,7 +698,7 @@ class Connection:
                         self.log(f"S2C_ActionEffect: actionId={effect.action_id:04x} "
                                  f"sourceSequence={effect.source_sequence:04x} "
                                  f"wait={int(original_wait_time * 1000)}ms->{int(wait_time * 1000)}ms{extra_message}")
-                        effect.animation_lock_duration = max(0., wait_time)
+                        effect.animation_lock_duration = max(0.050, wait_time)
                         effect_bytes = bytes(effect)
                         ipc.data = effect_bytes + ipc.data[len(effect_bytes):]
                         ipc_bytes = bytes(ipc)
